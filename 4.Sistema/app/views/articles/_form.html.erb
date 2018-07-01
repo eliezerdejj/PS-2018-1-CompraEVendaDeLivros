@@ -1,0 +1,48 @@
+<h1>Protudo</h1>
+<%= form_with model: @article, local: true do |form| %>
+
+<% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :nome %><br>
+    <%= form.text_field :nome %>
+  </p>
+ 
+  <p>
+    <%= form.label :autor %><br>
+    <%= form.text_field :autor %>
+  </p>
+
+  <p>
+    <%= form.label :ISBN %><br>
+    <%= form.text_field :isbn %>
+  </p>
+
+  <p>
+    <%= form.label :edição %><br>
+    <%= form.text_field :edicao %>
+  </p>
+
+  <p>
+    <%= form.label :descrição %><br>
+    <%= form.text_area :descricao %>
+  </p>
+ 
+  <p>
+    <%= form.submit :Cadastrar %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', articles_path %>

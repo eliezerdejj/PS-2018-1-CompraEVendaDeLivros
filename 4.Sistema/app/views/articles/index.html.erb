@@ -1,0 +1,23 @@
+<h1>Produtos Cadastrados</h1>
+ 
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Autor</th>
+    <th></th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.nome %></td>
+      <td><%= article.autor %></td>
+      <td><%= link_to 'Visualizar', article_path(article) %></td>
+      <td><%= link_to 'Editar', edit_article_path(article) %></td>
+      <td><%= link_to 'Deletar', article_path(article),
+              method: :delete,
+              data: { confirm: 'Deseja mesmo excluir o Produto?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Novo Produto', new_article_path %>
