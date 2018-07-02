@@ -1,23 +1,76 @@
-<h1>Produtos Cadastrados</h1>
- 
-<table>
+<head>
+  <style rel="stylesheet">
+      p { margin-top: 80cm; }
+      p { margin-right: 20px; }
+      /* Email styles need to be inline */
+    </style>
+  </head>
+<body>
+  <div align="center">
+
+<center>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Categorias</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Opções
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">-</a>
+          <a class="dropdown-item" href="#">-</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<br>
+<h1>Livros Cadastrados</h1>
+
+<table class="table" align="center" right="70%" width="100%" height="100%" cellpadding="0" cellspacing="0">
+  <thead class="thead-dark">
   <tr>
-    <th>Nome</th>
-    <th>Autor</th>
+    <th scope="col">    Nome</th>
+    <th scope="col">Autor</th>
+    <th scope="col">Visualizar</th>
+    <th scope="col">Editar</th>
+    <th scope="col">Excluir</th>
     <th></th>
   </tr>
+  </thead>
  
   <% @articles.each do |article| %>
+  <tbody>
     <tr>
       <td><%= article.nome %></td>
       <td><%= article.autor %></td>
-      <td><%= link_to 'Visualizar', article_path(article) %></td>
-      <td><%= link_to 'Editar', edit_article_path(article) %></td>
-      <td><%= link_to 'Deletar', article_path(article),
+      <td><%= link_to 'Ver Produto', article_path(article) %></td>
+      <td><%= link_to 'Editar Produto', edit_article_path(article) %></td>
+      <td><%= link_to 'Deletar Produto', article_path(article),
               method: :delete,
               data: { confirm: 'Deseja mesmo excluir o Produto?' } %></td>
     </tr>
+  </tbody>
   <% end %>
 </table>
+<br>
+<button type="button" class="btn btn-outline-primary"><%= link_to 'Novo Produto', new_article_path %></button>
 
-<%= link_to 'Novo Produto', new_article_path %>
+<button type="button" class="btn btn-outline-primary"><%= link_to 'Voltar', welcome_index_path %></button>
+
+</center>
+</div>
+</body>
